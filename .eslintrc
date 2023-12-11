@@ -1,0 +1,198 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["@typescript-eslint"],
+  "extends": [
+    "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/errors",
+    "plugin:import/typescript",
+    "next"
+  ],
+  "rules": {
+    "@typescript-eslint/consistent-type-exports": "error",
+    "@typescript-eslint/consistent-type-imports": "error",
+    "@typescript-eslint/member-ordering": "error",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      { "args": "after-used", "argsIgnorePattern": "^_" }
+    ],
+    "import/consistent-type-specifier-style": ["error", "prefer-top-level"],
+    "import/exports-last": "error",
+    "import/first": "error",
+    "import/group-exports": "error",
+    "import/newline-after-import": "error",
+    "import/no-commonjs": "error",
+    "import/no-cycle": "error",
+    "import/no-deprecated": "warn",
+    "import/no-default-export": "error",
+    "import/no-duplicates": "error",
+    "import/no-empty-named-blocks": "error",
+    "import/no-mutable-exports": "error",
+    "import/no-restricted-paths": [
+      "error",
+      {
+        "basePath": "./src",
+        "zones": [
+          // shared
+          {
+            "target": "shared",
+            "from": "app/**/*"
+          },
+          {
+            "target": "shared",
+            "from": "layouts/**/*"
+          },
+          {
+            "target": "shared",
+            "from": "modules/**/*"
+          },
+          {
+            "target": "shared",
+            "from": "widgets/**/*"
+          },
+          {
+            "target": "shared",
+            "from": "features/**/*"
+          },
+          {
+            "target": "shared",
+            "from": "entities**/*"
+          },
+          {
+            "target": "shared",
+            "from": "services/**/*"
+          },
+          // services
+          {
+            "target": "services",
+            "from": "app/**/*"
+          },
+          {
+            "target": "services",
+            "from": "layouts/**/*"
+          },
+          {
+            "target": "services",
+            "from": "modules/**/*"
+          },
+          {
+            "target": "services",
+            "from": "widgets/**/*"
+          },
+          {
+            "target": "services",
+            "from": "features/**/*"
+          },
+          {
+            "target": "services",
+            "from": "entities/**/*"
+          },
+          // entities
+          {
+            "target": "entities",
+            "from": "app/**/*"
+          },
+          {
+            "target": "entities",
+            "from": "layouts/**/*"
+          },
+          {
+            "target": "entities",
+            "from": "modules/**/*"
+          },
+          {
+            "target": "entities",
+            "from": "widgets/**/*"
+          },
+          {
+            "target": "entities",
+            "from": "features/**/*"
+          },
+          // features
+          {
+            "target": "features",
+            "from": "app/**/*"
+          },
+          {
+            "target": "features",
+            "from": "layouts/**/*"
+          },
+          {
+            "target": "features",
+            "from": "modules/**/*"
+          },
+          {
+            "target": "features",
+            "from": "widgets/**/*"
+          },
+          // widgets
+          {
+            "target": "widgets",
+            "from": "app/**/*"
+          },
+          {
+            "target": "widgets",
+            "from": "layouts/**/*"
+          },
+          {
+            "target": "widgets",
+            "from": "modules/**/*"
+          },
+          // modules
+          {
+            "target": "modules",
+            "from": "app/**/*"
+          },
+          // layouts
+          {
+            "target": "layouts",
+            "from": "app/**/*"
+          }
+        ]
+      }
+    ],
+    "import/no-self-import": "error",
+    "import/no-unused-modules": ["error", { "missingExports": true }],
+    "import/no-unassigned-import": [
+      "error",
+      { "allow": ["src/app/index.css"] }
+    ],
+    "import/no-useless-path-segments": "error",
+    "import/order": [
+      "error",
+      {
+        "alphabetize": {
+          "caseInsensitive": true,
+          "order": "asc"
+        },
+        "groups": ["external", "internal", ["parent", "sibling", "index"]],
+        "newlines-between": "always",
+        "pathGroups": [
+          {
+            "group": "parent",
+            "pattern": "@tothemetamoon/**",
+            "position": "before"
+          }
+        ]
+      }
+    ]
+  },
+  "ignorePatterns": ["node_modules", ".next", "generated", "*.config.*"],
+  "overrides": [
+    {
+      "files": ["src/app/**/*"],
+      "rules": {
+        "import/no-default-export": "off"
+      }
+    },
+    {
+      "files": ["src/**/index.ts"],
+      "rules": {
+        "import/no-unused-modules": "off"
+      }
+    }
+  ]
+}
